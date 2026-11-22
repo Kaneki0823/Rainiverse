@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080c19">
+  <meta name="description" content="A little universe made just for Rain, with love from Kei.">
+  <title>A Little Universe for Rain</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Ambient background -->
+  <canvas id="starCanvas"></canvas>
+  <div class="background-glow"></div>
+  <div class="vignette"></div>
+  <div class="grain"></div>
+
+  <!-- INTRODUCTION -->
+  <section id="intro" class="intro-screen">
+
+    <div class="intro-stars"></div>
+
+    <div class="intro-content">
+
+      <div class="intro-overline">
+        A SMALL WORLD, JUST FOR YOU
+      </div>
+
+      <div class="moon-decoration">
+        <span class="moon-orbit"></span>
+        <span class="moon">☾</span>
+      </div>
+
+      <h1>
+        A Little Universe
+        <span>for Rain</span>
+      </h1>
+
+      <p class="intro-description">
+        Somewhere between a thousand stars,
+        a little place was made just for you.
+      </p>
+
+      <button id="enterButton" class="primary-button">
+        <span>Come in for a little while</span>
+        <span class="button-arrow">↗</span>
+      </button>
+
+      <div class="intro-footer">
+        MADE WITH LOVE, JUST BECAUSE.
+        <span>— KEI</span>
+      </div>
+
+    </div>
+
+    <div class="intro-bottom-note">
+      TAKE YOUR TIME. THERE'S NO RUSH.
+    </div>
+
+  </section>
+
+
+  <!-- MAIN UNIVERSE -->
+  <main id="universe" class="universe-screen hidden">
+
+    <!-- Top navigation -->
+    <header class="topbar">
+
+      <a href="#" class="brand" id="homeButton">
+        <span class="brand-star">✧</span>
+        <span>A little universe</span>
+        <span class="brand-for">for Rain</span>
+      </a>
+
+      <div class="topbar-right">
+
+        <button id="musicButton" class="icon-button" aria-label="Toggle music">
+          <span id="musicIcon">♫</span>
+        </button>
+
+        <button id="menuButton" class="icon-button menu-button" aria-label="Open navigation">
+          <span id="menuIcon">☰</span>
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- Navigation overlay -->
+    <nav id="navigation" class="navigation hidden">
+
+      <div class="navigation-heading">
+        <span>YOUR LITTLE UNIVERSE</span>
+        <button id="closeMenu" class="close-button">×</button>
+      </div>
+
+      <button class="nav-link active" data-world="home">
+        <span>01</span>
+        The Universe
+        <span class="nav-symbol">✧</span>
+      </button>
+
+      <button class="nav-link" data-world="things">
+        <span>02</span>
+        Little Things
+        <span class="nav-symbol">♡</span>
+      </button>
+
+      <button class="nav-link" data-world="garden">
+        <span>03</span>
+        The Little Garden
+        <span class="nav-symbol">✿</span>
+      </button>
+
+      <button class="nav-link" data-world="stars">
+        <span>04</span>
+        Our Constellation
+        <span class="nav-symbol">✧</span>
+      </button>
+
+      <div class="navigation-footer">
+        A WORLD THAT WILL ALWAYS HAVE A LITTLE ROOM FOR YOU.
+      </div>
+
+    </nav>
+
+
+    <!-- WORLD 1: UNIVERSE -->
+    <section id="world-home" class="world active-world">
+
+      <div class="world-heading">
+
+        <span class="eyebrow">A PLACE IN THIS LITTLE UNIVERSE</span>
+
+        <h2>
+          Somewhere, among<br>
+          <em>all these stars...</em>
+        </h2>
+
+        <p>
+          There's a little corner of the universe
+          that I wanted to share with you.
+        </p>
+
+      </div>
+
+      <div class="universe-instruction">
+        <span class="pulse-dot"></span>
+        TAP A STAR. SOME OF THEM HAVE SOMETHING TO SAY.
+      </div>
+
+      <div class="starfield-interaction">
+
+        <canvas id="messageCanvas"></canvas>
+
+        <div class="starfield-center">
+          <span class="center-star">✧</span>
+          <span>for you, Rain</span>
+        </div>
+
+        <div id="starMessage" class="star-message hidden">
+
+          <button id="closeStarMessage" class="close-button">×</button>
+
+          <span class="message-sparkle">✧</span>
+
+          <p id="starMessageText"></p>
+
+          <span class="message-signature">— Kei</span>
+
+        </div>
+
+      </div>
+
+      <div class="world-bottom-note">
+        THERE ARE MORE LITTLE THINGS WAITING FOR YOU.
+      </div>
+
+    </section>
+
+
+    <!-- WORLD 2: LITTLE THINGS -->
+    <section id="world-things" class="world">
+
+      <div class="world-heading">
+
+        <span class="eyebrow">THE LITTLE THINGS</span>
+
+        <h2>
+          It's funny how<br>
+          <em>everything leads to you.</em>
+        </h2>
+
+        <p>
+          Random thoughts, little observations,
+          and things I don't always get to say.
+        </p>
+
+      </div>
+
+      <div class="things-container">
+
+        <div class="things-feature">
+
+          <span class="feature-star">✧</span>
+
+          <span class="eyebrow">A RANDOM LITTLE THOUGHT</span>
+
+          <div id="thoughtText" class="thought-text">
+            Sometimes I find myself smiling
+            because something reminded me of you.
+          </div>
+
+          <div class="thought-author">— A thought from Kei</div>
+
+          <button id="randomThoughtButton" class="secondary-button">
+            Tell me another little thing <span>↗</span>
+          </button>
+
+        </div>
+
+
+        <div class="things-grid">
+
+          <article class="little-card card-one">
+            <span class="card-icon">☾</span>
+            <span class="eyebrow">A LITTLE WISH</span>
+            <h3>For your ordinary days</h3>
+            <p>
+              I hope even the smallest things
+              find a way to make you happy.
+            </p>
+          </article>
+
+          <article class="little-card card-two">
+            <span class="card-icon">♡</span>
+            <span class="eyebrow">A LITTLE REMINDER</span>
+            <h3>You are appreciated</h3>
+            <p>
+              Even on days when you don't
+              notice it yourself.
+            </p>
+          </article>
+
+          <article class="little-card card-three">
+            <span class="card-icon">✧</span>
+            <span class="eyebrow">A LITTLE CONFESSION</span>
+            <h3>My favorite coincidence</h3>
+            <p>
+              Somehow, meeting you became
+              one of my favorite parts of life.
+            </p>
+          </article>
+
+          <article class="little-card card-four">
+            <span class="card-icon">☁</span>
+            <span class="eyebrow">A LITTLE HOPE</span>
+            <h3>For tomorrow</h3>
+            <p>
+              I hope tomorrow is a little
+              gentler with you.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- WORLD 3: GARDEN -->
+    <section id="world-garden" class="world">
+
+      <div class="world-heading">
+
+        <span class="eyebrow">SOMETHING SOFT AND BEAUTIFUL</span>
+
+        <h2>
+          A garden that<br>
+          <em>blooms for you.</em>
+        </h2>
+
+        <p>
+          A little place where nothing needs
+          to be hurried.
+        </p>
+
+      </div>
+
+
+      <div class="garden-container">
+
+        <div class="garden-sky"></div>
+
+        <div class="garden-moon">☾</div>
+
+        <div class="firefly-layer" id="fireflyLayer"></div>
+
+        <div class="garden-landscape">
+
+          <div class="garden-hill hill-back"></div>
+          <div class="garden-hill hill-front"></div>
+
+          <div class="flowers">
+
+            <div class="flower flower-a" data-flower="0">
+              <div class="flower-stem"></div>
+              <div class="flower-head">
+                <i></i><i></i><i></i><i></i><i></i><i></i>
+                <b></b>
+              </div>
+              <div class="flower-leaf"></div>
+            </div>
+
+            <div class="flower flower-b" data-flower="1">
+              <div class="flower-stem"></div>
+              <div class="flower-head">
+                <i></i><i></i><i></i><i></i><i></i><i></i>
+                <b></b>
+              </div>
+              <div class="flower-leaf"></div>
+            </div>
+
+            <div class="flower flower-c" data-flower="2">
+              <div class="flower-stem"></div>
+              <div class="flower-head">
+                <i></i><i></i><i></i><i></i><i></i><i></i>
+                <b></b>
+              </div>
+              <div class="flower-leaf"></div>
+            </div>
+
+            <div class="flower flower-d" data-flower="3">
+              <div class="flower-stem"></div>
+              <div class="flower-head">
+                <i></i><i></i><i></i><i></i><i></i><i></i>
+                <b></b>
+              </div>
+              <div class="flower-leaf"></div>
+            </div>
+
+            <div class="flower flower-e" data-flower="4">
+              <div class="flower-stem"></div>
+              <div class="flower-head">
+                <i></i><i></i><i></i><i></i><i></i><i></i>
+                <b></b>
+              </div>
+              <div class="flower-leaf"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div id="flowerMessage" class="flower-message hidden">
+          <span class="flower-message-icon">✿</span>
+          <p id="flowerMessageText"></p>
+          <button id="closeFlowerMessage" class="close-button">×</button>
+        </div>
+
+        <div class="garden-caption">
+          <span>GROWING QUIETLY, JUST LIKE THE LITTLE THINGS.</span>
+        </div>
+
+      </div>
+
+      <p class="garden-note">
+        Some beautiful things don't need a reason to bloom.
+      </p>
+
+    </section>
+
+
+    <!-- WORLD 4: CONSTELLATION -->
+    <section id="world-stars" class="world">
+
+      <div class="world-heading">
+
+        <span class="eyebrow">SOMETHING I SAVED FOR YOU</span>
+
+        <h2>
+          A thousand stars,<br>
+          <em>one name.</em>
+        </h2>
+
+        <p>
+          I wanted to leave something special
+          somewhere in this little universe.
+        </p>
+
+      </div>
+
+      <div class="constellation-container">
+
+        <canvas id="constellationCanvas"></canvas>
+
+        <div class="constellation-overlay">
+
+          <span id="constellationLabel" class="constellation-label">
+            A LITTLE SOMETHING FOR YOU
+          </span>
+
+          <button id="revealConstellation" class="primary-button">
+            <span>Make a little wish</span>
+            <span class="button-arrow">✧</span>
+          </button>
+
+          <p id="constellationHint">
+            Take your time. There's something waiting here.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div id="finalMessage" class="final-message hidden">
+
+        <span class="final-decoration">✧</span>
+
+        <span class="eyebrow">AND THERE YOU ARE</span>
+
+        <h2>Rain.</h2>
+
+        <p>
+          Out of all the stars, all the places,
+          and all the little things in this universe...
+        </p>
+
+        <p class="final-highlight">
+          I'm glad my world has you in it.
+        </p>
+
+        <p class="final-letter">
+          There doesn't have to be a special reason
+          for me to make something for you.
+
+          Sometimes I just think about you,
+          and that's reason enough.
+
+          I hope you never forget how loved,
+          appreciated, and special you are.
+
+          I love you, Rain.
+        </p>
+
+        <div class="final-signature">
+          With love, always<br>
+          <span>Kei</span>
+        </div>
+
+        <span class="final-end-star">✧</span>
+
+      </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="universe-footer">
+
+      <span>MADE WITH A LITTLE TOO MUCH LOVE.</span>
+
+      <span>FOR RAIN, FROM KEI ♡</span>
+
+    </footer>
+
+  </main>
+
+
+  <!-- Shared notification -->
+  <div id="toast" class="toast"></div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
